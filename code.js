@@ -5,7 +5,7 @@
 const gameboard = (()=> {
     let board=[0,0,0,0,0,0,0,0,0];
     const reset = () => {board = [0,0,0,0,0,0,0,0,0];}
-    const change = (x,y) => board[x] = z;
+    const change = (x,y) => board[x] = y;
 
     return {
         board, reset, change
@@ -14,6 +14,7 @@ const gameboard = (()=> {
 })();
 
 const gamecontroller = (()=>{
+    
     const generate = () => {
         let gameboard1 = document.getElementById("gameboard");
         gameboard1.innerHTML = "";
@@ -26,20 +27,30 @@ const gamecontroller = (()=>{
             } else {
                 gameboard1.innerHTML += `<div class="gamesquare" id="gs${i}">O</div>`;
             }
-            document.getElementById(`gs${i}`).addEventListener("click",()=>additem(i));
+        
     
+        }
+        for (let i = 0;i<9;i++){
+            document.getElementById(`gs${i}`).addEventListener("click",()=>{additem(i)});
         }
     }
 
     const additem = (x) => {
-        gameboard.board[x] = 1;
-        generate;
-        console.log("hi");
+        if(whoseturn == 0){
+            gameboard.change(x,1);
+            whoseturn = 1;
+        } else{
+            gameboard.change(x,2);
+            whoseturn = 0;
+        }
+        gamecontroller.generate();
     }
 
+    let whoseturn = 0;
 
 
-    return { generate, additem};
+
+    return { generate, additem, whoseturn};
 
 })();
 

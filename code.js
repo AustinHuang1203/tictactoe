@@ -50,6 +50,7 @@ const gamecontroller = (()=>{
             whoseturn = 0;
         }
         gamecontroller.generate();
+        checkwin();
     }
 
     let whoseturn = 0;
@@ -60,7 +61,32 @@ const gamecontroller = (()=>{
 
 
     const checkwin = () => {
-        
+        let checkb = gameboard.board;
+        console.log(checkb.slice(0,3))
+        if(
+            checkb[0] == 1 && checkb[1] == 1 && checkb[2] == 1 ||
+            checkb[3] == 1 && checkb[4] == 1 && checkb[5] == 1 ||
+            checkb[6] == 1 && checkb[7] == 1 && checkb[8] == 1 ||
+            checkb[0] == 1 && checkb[3] == 1 && checkb[6] == 1 ||
+            checkb[1] == 1 && checkb[4] == 1 && checkb[7] == 1 ||
+            checkb[2] == 1 && checkb[5] == 1 && checkb[8] == 1 ||
+            checkb[0] == 1 && checkb[4] == 1 && checkb[8] == 1 ||
+            checkb[2] == 1 && checkb[4] == 1 && checkb[6] == 1 
+        ){
+            console.log("x win");
+        }
+        else if (
+            checkb[0] == 2 && checkb[1] == 2 && checkb[2] == 2 ||
+            checkb[3] == 2 && checkb[4] == 2 && checkb[5] == 2 ||
+            checkb[6] == 2 && checkb[7] == 2 && checkb[8] == 2 ||
+            checkb[0] == 2 && checkb[3] == 2 && checkb[6] == 2 ||
+            checkb[1] == 2 && checkb[4] == 2 && checkb[7] == 2 ||
+            checkb[2] == 2 && checkb[5] == 2 && checkb[8] == 2 ||
+            checkb[0] == 2 && checkb[4] == 2 && checkb[8] == 2 ||
+            checkb[2] == 2 && checkb[4] == 2 && checkb[6] == 2 
+        ) {
+            console.log("O win");
+        }
 
     }
     

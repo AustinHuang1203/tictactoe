@@ -1,0 +1,29 @@
+.header{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:200px;
+    width:100%;
+    background-color:darkblue;
+    font-size:4rem;
+    color:white;
+}
+
+.gameboard{
+    display:flex;
+    flex-wrap:wrap;
+    height:600px;
+    width:600px;
+    border:5px black solid;
+    background-color:aqua;
+}
+
+.gamesquare{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:10rem;
+    height:190px;
+    width:190px;
+    border:5px solid black;
+}

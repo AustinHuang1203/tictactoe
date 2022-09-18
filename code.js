@@ -4,11 +4,14 @@
 //factories and modules
 const gameboard = (()=> {
     let board=[0,0,0,0,0,0,0,0,0];
-    const reset = () => {board = [0,0,0,0,0,0,0,0,0];}
+
     const change = (x,y) => board[x] = y;
+    const reset = () => {for(let i = 0; i<9; i++){
+        change(i,0);
+    }}
 
     return {
-        board, reset, change
+        board, change, reset
     };
 
 })();
@@ -36,7 +39,10 @@ const gamecontroller = (()=>{
     }
 
     const additem = (x) => {
-        if(whoseturn == 0){
+        if(document.getElementById(`gs${x}`).innerHTML != ""){
+            return;
+        }
+        else if(whoseturn == 0){
             gameboard.change(x,1);
             whoseturn = 1;
         } else{
@@ -48,9 +54,20 @@ const gamecontroller = (()=>{
 
     let whoseturn = 0;
 
+    const reset = () => {gameboard.reset();
+        whoseturn = 0;
+        gamecontroller.generate();}
 
 
-    return { generate, additem, whoseturn};
+    const checkwin = () => {
+        
+
+    }
+    
+
+
+
+    return { generate, additem, whoseturn, reset,checkwin};
 
 })();
 
@@ -61,3 +78,7 @@ const gamecontroller = (()=>{
 
 //run at start
 gamecontroller.generate();
+
+// add event listerners
+const reset1 = document.getElementById("reset");
+reset1.addEventListener("click",gamecontroller.reset);

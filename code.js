@@ -73,7 +73,7 @@ const gamecontroller = (()=>{
             checkb[0] == 1 && checkb[4] == 1 && checkb[8] == 1 ||
             checkb[2] == 1 && checkb[4] == 1 && checkb[6] == 1 
         ){
-            console.log("x win");
+            console1.open();
         }
         else if (
             checkb[0] == 2 && checkb[1] == 2 && checkb[2] == 2 ||
@@ -85,7 +85,7 @@ const gamecontroller = (()=>{
             checkb[0] == 2 && checkb[4] == 2 && checkb[8] == 2 ||
             checkb[2] == 2 && checkb[4] == 2 && checkb[6] == 2 
         ) {
-            console.log("O win");
+            console1.open();
         }
 
     }
@@ -93,7 +93,26 @@ const gamecontroller = (()=>{
 
 
 
-    return { generate, additem, whoseturn, reset,checkwin};
+    return { generate, additem, reset,checkwin};
+
+})();
+
+
+const console1 = (() => {
+
+
+    const close = () => {
+        document.getElementById("indicator").style.visibility = "hidden";
+        document.getElementById("background1").style.visibility = "hidden";
+    }
+
+    const open = () => {
+        document.getElementById("indicator").style.visibility = "visible";
+        document.getElementById("background1").style.visibility = "visible";
+    }
+
+
+    return { close, open };
 
 })();
 
@@ -108,3 +127,4 @@ gamecontroller.generate();
 // add event listerners
 const reset1 = document.getElementById("reset");
 reset1.addEventListener("click",gamecontroller.reset);
+document.getElementById("background1").addEventListener("click",console1.close);

@@ -62,7 +62,12 @@ const gamecontroller = (()=>{
 
     const checkwin = () => {
         let checkb = gameboard.board;
-        console.log(checkb.slice(0,3))
+        let checkc = true;
+        for (let i = 0; i<9; i++){
+            if (checkb[i] == 0){
+                checkc = false;
+            }
+        }
         if(
             checkb[0] == 1 && checkb[1] == 1 && checkb[2] == 1 ||
             checkb[3] == 1 && checkb[4] == 1 && checkb[5] == 1 ||
@@ -73,6 +78,7 @@ const gamecontroller = (()=>{
             checkb[0] == 1 && checkb[4] == 1 && checkb[8] == 1 ||
             checkb[2] == 1 && checkb[4] == 1 && checkb[6] == 1 
         ){
+            document.getElementById("banner1").innerHTML="X wins!"
             console1.open();
         }
         else if (
@@ -85,6 +91,13 @@ const gamecontroller = (()=>{
             checkb[0] == 2 && checkb[4] == 2 && checkb[8] == 2 ||
             checkb[2] == 2 && checkb[4] == 2 && checkb[6] == 2 
         ) {
+            document.getElementById("banner1").innerHTML="O wins!"
+            console1.open();
+        }
+        else if (
+            checkc
+        ) {
+            document.getElementById("banner1").innerHTML="Draw!"
             console1.open();
         }
 
@@ -104,6 +117,7 @@ const console1 = (() => {
     const close = () => {
         document.getElementById("indicator").style.visibility = "hidden";
         document.getElementById("background1").style.visibility = "hidden";
+        gamecontroller.reset();
     }
 
     const open = () => {

@@ -28,7 +28,7 @@ const gamecontroller = (()=>{
             else if (gameboard.board[i] === 1){
                 gameboard1.innerHTML += `<div class="gamesquare" id="gs${i}">X</div>`;
             } else {
-                gameboard1.innerHTML += `<div class="gamesquare" id="gs${i}">O</div>`;
+                gameboard1.innerHTML += `<div class="gamesquare1" id="gs${i}">O</div>`;
             }
         
     

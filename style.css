@@ -1,6 +1,7 @@
 body{
     margin:0px;
     padding:0px;
+    background-color:black;
 }
 
 .header{
@@ -9,7 +10,7 @@ body{
     align-items:center;
     height:200px;
     width:100%;
-    background-color:darkblue;
+    background-color:black;
     font-size:4rem;
     color:white;
 }
@@ -20,18 +21,45 @@ body{
     flex-wrap:wrap;
     height:600px;
     width:600px;
-    border:5px black solid;
-    background-color:aqua;
-}
+    border:5px grey solid;
+    background: #33CCCC;
+    animation: color 9s infinite linear;
+  }
+  
+
+
+  @keyframes color {
+    0%   { background: #33CCCC; }
+    20%  { background: #33CC36; }
+    40%  { background: #B8CC33; }
+    60%  { background: #FCCA00; }
+    80%  { background: #33CC36; }
+    100% { background: #33CCCC; }
+  }
+  
+  
+
+
 
 .gamesquare{
     display:flex;
     justify-content:center;
+    color:red;
     align-items:center;
     font-size:10rem;
     height:190px;
     width:190px;
-    border:5px solid black;
+    border:5px solid grey;
+}
+.gamesquare1{
+    display:flex;
+    justify-content:center;
+    color:blue;
+    align-items:center;
+    font-size:10rem;
+    height:190px;
+    width:190px;
+    border:5px solid grey;
 }
 
 .gamebox{
@@ -41,11 +69,13 @@ body{
     padding-top:50px;
 }
 
+/* reset button */
+
 .resetbox{
     display:flex;
     justify-content:center;
     width:100%;
-    padding-top:30px;
+    padding-top:50px;
     padding-bottom:150px;
 }
 
@@ -81,12 +111,12 @@ body{
     visibility:hidden;
     flex-wrap:wrap;
     position:fixed;
-    background-color:darkgreen;
+    background-color:rgba(255, 134, 47, 0.8);
     border: solid 5px black;
     top: 50%;
     left: 50%;
-    height: 600px;
-    margin-top: -300px;
+    height: 400px;
+    margin-top: -200px;
     margin-left: -250px;
     width: 500px;
 }
@@ -98,5 +128,5 @@ body{
     font-size:6rem;
     color:white;
     width:100%;
-    height:90%;
+    height:100%;
 }

@@ -14,6 +14,7 @@ body{
     color:white;
 }
 
+/* gameboard */
 .gameboard{
     display:flex;
     flex-wrap:wrap;
@@ -31,6 +32,35 @@ body{
     height:190px;
     width:190px;
     border:5px solid black;
+}
+
+.gamebox{
+    display:flex;
+    justify-content:center;
+    width:100%;
+    padding-top:50px;
+}
+
+.resetbox{
+    display:flex;
+    justify-content:center;
+    width:100%;
+    padding-top:30px;
+    padding-bottom:150px;
+}
+
+.reset1{
+    height:90px;
+    width:250px;
+    background-color:transparent;
+    color:green;
+    font-size:2.5rem;
+    border:6px solid green;
+}
+
+.reset1:hover{
+    background-color:green;
+    color:white;
 }
 
 /* pop up box */
